@@ -17,18 +17,20 @@ class _HomePageState extends State<HomePage> {
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed('cart');
+          },
           child: Icon(
             Icons.add_shopping_cart,
             size: 30,
           ),
         ),
         appBar: AppBar(
-          backgroundColor: Color(0xff202140),
+          backgroundColor: Global.appColor,
           title: Text(
             "Welcome",
             style: TextStyle(
-              color: Color(0xfffeae42),
+              color: Global.textColor,
               fontSize: 25,
             ),
           ),
@@ -69,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.w700,
                               color: (Global.initialIndex == 0)
                                   ? Colors.black
-                                  : Color(0xfffeae42),
+                                  : Global.textColor,
                             ),
                           ),
                         ),
@@ -86,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.w700,
                               color: (Global.initialIndex == 1)
                                   ? Colors.black
-                                  : Color(0xfffeae42),
+                                  : Global.textColor,
                             ),
                           ),
                         ),
@@ -103,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.w700,
                               color: (Global.initialIndex == 2)
                                   ? Colors.black
-                                  : Color(0xfffeae42),
+                                  : Global.textColor,
                             ),
                           ),
                         ),
@@ -120,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.w700,
                               color: (Global.initialIndex == 3)
                                   ? Colors.black
-                                  : Color(0xfffeae42),
+                                  : Global.textColor,
                             ),
                           ),
                         ),

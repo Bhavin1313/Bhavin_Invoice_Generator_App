@@ -12,6 +12,13 @@ class Detail_Screen extends StatefulWidget {
 
 class _Detail_ScreenState extends State<Detail_Screen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Global.item = 1;
+  }
+
+  @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
@@ -278,12 +285,14 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                           flex: 2,
                           child: GestureDetector(
                             onTap: () {
-                              if (!addedProducts.contains(data)) {
-                                addedProducts.add(data);
-                              }
-                              Navigator.of(context).pushNamed(
-                                'cart',
-                              );
+                              setState(() {
+                                if (!addedProducts.contains(data)) {
+                                  addedProducts.add(data);
+                                }
+                                Navigator.of(context).pushNamed(
+                                  'cart',
+                                );
+                              });
                             },
                             child: Container(
                               height: h * .055,

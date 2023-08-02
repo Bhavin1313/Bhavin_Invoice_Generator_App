@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../utils/globals.dart';
 import '../utils/product_list.dart';
 
 class Cart_Page extends StatefulWidget {
@@ -11,12 +12,14 @@ class Cart_Page extends StatefulWidget {
 
 class _Cart_PageState extends State<Cart_Page> {
   int TotalPrice = 0;
+  int ProPrice = 0;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     addedProducts.forEach((element) {
       TotalPrice = TotalPrice + element['price'] as int;
+      ProPrice = element['price'] * Global.item as int;
     });
   }
 
@@ -56,7 +59,7 @@ class _Cart_PageState extends State<Cart_Page> {
                             .map(
                               (e) => Container(
                                 margin: EdgeInsets.all(20),
-                                height: 110,
+                                height: 150,
                                 width: 400,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
@@ -107,7 +110,17 @@ class _Cart_PageState extends State<Cart_Page> {
                                                 ),
                                               ),
                                               Text(
-                                                "Rs.${e['price']}",
+                                                (Global.item > 1)
+                                                    ? "Rs.${ProPrice}"
+                                                    : "Rs.${e['price']}",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.w700,
+                                                  fontSize: 20,
+                                                ),
+                                              ),
+                                              Text(
+                                                "Quantity : ${Global.item}",
+                                                overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.w700,
                                                   fontSize: 20,
@@ -186,19 +199,24 @@ class _Cart_PageState extends State<Cart_Page> {
                     ],
                   ),
                   Spacer(),
-                  Container(
-                    height: 40,
-                    width: 170,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(22),
-                      color: Color(0xfffeae42),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Checkout   ✒",
-                      style: TextStyle(
-                          color: Color(0xff202140),
-                          fontWeight: FontWeight.w700),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed('checkout');
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 170,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(22),
+                        color: Color(0xfffeae42),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Checkout   ✒",
+                        style: TextStyle(
+                            color: Color(0xff202140),
+                            fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
                 ],

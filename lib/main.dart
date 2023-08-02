@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:invoice_generator/Screens/pdf.dart';
 
 import 'Screens/cart_page.dart';
+import 'Screens/checkout.dart';
 import 'Screens/detail_page.dart';
 import 'Screens/home_page.dart';
 import 'Screens/splece_screen.dart';
@@ -16,6 +18,8 @@ void main() {
         'home': (context) => const HomePage(),
         'detail_page': (context) => const Detail_Screen(),
         'cart': (context) => const Cart_Page(),
+        'checkout': (context) => const Checkout(),
+        'pdf': (context) => const Pdf(),
       },
     ),
   );
