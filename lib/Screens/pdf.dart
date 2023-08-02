@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-
+import 'package:invoice_generator/utils/product_list.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as Pw;
 import 'package:printing/printing.dart';
@@ -37,7 +37,12 @@ class _PdfState extends State<Pdf> {
                       Pw.Container(
                         height: 100,
                         width: 100,
-                        color: PdfColors.grey,
+                        decoration: Pw.BoxDecoration(
+                          color: PdfColors.grey,
+                          //image: Pw.DecorationImage(
+                          //image: Pw.MemoryImage("lib/Assets/invoice.jpg"),
+                          //),
+                        ),
                       ),
                       Pw.Text(
                         "INVOICE",
@@ -221,6 +226,70 @@ class _PdfState extends State<Pdf> {
                         ),
                       ],
                     ),
+                    ...addedProducts
+                        .map(
+                          (e) => Pw.Row(
+                            children: [
+                              Pw.Expanded(
+                                flex: 3,
+                                child: Pw.Container(
+                                  height: 30,
+                                  alignment: Pw.Alignment.center,
+                                  color: PdfColors.white,
+                                  child: Pw.Text(
+                                    e['title'],
+                                    style: const Pw.TextStyle(
+                                      color: PdfColors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Pw.Expanded(
+                                flex: 2,
+                                child: Pw.Container(
+                                  height: 30,
+                                  alignment: Pw.Alignment.center,
+                                  color: PdfColors.white,
+                                  child: Pw.Text(
+                                    e['bq'].toString(),
+                                    style: const Pw.TextStyle(
+                                      color: PdfColors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Pw.Expanded(
+                                flex: 2,
+                                child: Pw.Container(
+                                  height: 30,
+                                  alignment: Pw.Alignment.center,
+                                  color: PdfColors.white,
+                                  child: Pw.Text(
+                                    e['price'].toString(),
+                                    style: const Pw.TextStyle(
+                                      color: PdfColors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Pw.Expanded(
+                                flex: 2,
+                                child: Pw.Container(
+                                  height: 30,
+                                  alignment: Pw.Alignment.center,
+                                  color: PdfColors.white,
+                                  child: Pw.Text(
+                                    e['price'].toString(),
+                                    style: const Pw.TextStyle(
+                                      color: PdfColors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                        .toList(),
                     Pw.Padding(
                       padding: const Pw.EdgeInsets.only(
                         top: 50,

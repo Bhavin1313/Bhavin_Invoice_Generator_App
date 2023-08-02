@@ -288,6 +288,7 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                               setState(() {
                                 if (!addedProducts.contains(data)) {
                                   addedProducts.add(data);
+                                  data["bq"] = data["bq"] + 1;
                                 }
                                 Navigator.of(context).pushNamed(
                                   'cart',
