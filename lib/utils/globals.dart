@@ -4,6 +4,7 @@ class Global {
   static int initialIndex = 0;
 
   static int item = 1;
+  static int TotalPrice = 0;
 
   static Color appColor = Color(0xff202140);
   static Color textColor = Color(0xfffeae42);

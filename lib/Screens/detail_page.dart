@@ -15,7 +15,6 @@ class _Detail_ScreenState extends State<Detail_Screen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Global.item = 1;
   }
 
   @override
@@ -216,9 +215,9 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                                     child: IconButton(
                                       onPressed: () {
                                         setState(() {
-                                          (Global.item <= 1)
-                                              ? Global.item == 1
-                                              : Global.item--;
+                                          (data['bq'] <= 1)
+                                              ? data['bq'] == 1
+                                              : data['bq']--;
                                         });
                                       },
                                       icon: Icon(
@@ -239,7 +238,7 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                                     ),
                                     alignment: Alignment.center,
                                     child: Text(
-                                      Global.item.toStringAsFixed(0),
+                                      "${data['bq']}",
                                       style: TextStyle(
                                         fontSize: 22,
                                         fontWeight: FontWeight.bold,
@@ -263,7 +262,7 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                                     child: IconButton(
                                       onPressed: () {
                                         setState(() {
-                                          Global.item++;
+                                          data['bq']++;
                                         });
                                       },
                                       alignment: Alignment.center,
@@ -288,7 +287,6 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                               setState(() {
                                 if (!addedProducts.contains(data)) {
                                   addedProducts.add(data);
-                                  data["bq"] = data["bq"] + 1;
                                 }
                                 Navigator.of(context).pushNamed(
                                   'cart',

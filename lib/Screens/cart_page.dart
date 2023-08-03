@@ -12,14 +12,14 @@ class Cart_Page extends StatefulWidget {
 
 class _Cart_PageState extends State<Cart_Page> {
   int TotalPrice = 0;
-  int ProPrice = 0;
+  int ProductPrice = 0;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     addedProducts.forEach((element) {
-      TotalPrice = TotalPrice + element['price'] as int;
-      ProPrice = element['price'] * Global.item as int;
+      ProductPrice = element['bq'] * element['price'] as int;
+      TotalPrice = TotalPrice + ProductPrice as int;
     });
   }
 
@@ -110,16 +110,14 @@ class _Cart_PageState extends State<Cart_Page> {
                                                 ),
                                               ),
                                               Text(
-                                                (Global.item > 1)
-                                                    ? "Rs.${ProPrice}"
-                                                    : "Rs.${e['price']}",
+                                                "Rs. ${e['bq'] * e['price']} ",
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.w700,
                                                   fontSize: 20,
                                                 ),
                                               ),
                                               Text(
-                                                "Quantity : ${Global.item}",
+                                                "Quantity : ${e['bq']}",
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.w700,
@@ -130,8 +128,8 @@ class _Cart_PageState extends State<Cart_Page> {
                                                 onTap: () {
                                                   setState(() {
                                                     addedProducts.remove(e);
-                                                    TotalPrice -=
-                                                        e['price'] as int;
+                                                    TotalPrice -= e['price'] *
+                                                        e['bq'] as int;
                                                   });
                                                 },
                                                 child: Text(

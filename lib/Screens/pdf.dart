@@ -21,6 +21,8 @@ class _PdfState extends State<Pdf> {
   var year = DateTime.now().year;
   var month = DateTime.now().month;
   var day = DateTime.now().day;
+  int TPrice = 0;
+  int PtPrice = 0;
 
   genratePdf() {
     pdf.addPage(
@@ -30,20 +32,20 @@ class _PdfState extends State<Pdf> {
           child: Pw.Column(
             children: [
               Pw.Expanded(
-                flex: 3,
+                flex: 1,
                 child: Pw.Center(
                   child: Pw.Column(
                     children: [
-                      Pw.Container(
-                        height: 100,
-                        width: 100,
-                        decoration: Pw.BoxDecoration(
-                          color: PdfColors.grey,
-                          //image: Pw.DecorationImage(
-                          //image: Pw.MemoryImage("lib/Assets/invoice.jpg"),
-                          //),
-                        ),
-                      ),
+                      // Pw.Container(
+                      //   height: 100,
+                      //   width: 100,
+                      //   decoration: Pw.BoxDecoration(
+                      //     color: PdfColors.grey,
+                      //     //image: Pw.DecorationImage(
+                      //     //image: Pw.MemoryImage("lib/Assets/invoice.jpg"),
+                      //     //),
+                      //   ),
+                      // ),
                       Pw.Text(
                         "INVOICE",
                         style: Pw.TextStyle(
@@ -56,7 +58,7 @@ class _PdfState extends State<Pdf> {
                 ),
               ),
               Pw.Expanded(
-                flex: 4,
+                flex: 3,
                 child: Pw.Row(
                   children: [
                     Pw.Padding(
@@ -105,7 +107,7 @@ class _PdfState extends State<Pdf> {
                             height: 5,
                           ),
                           Pw.Text(
-                            "${Global.address2}",
+                            "${Global.address2},${Global.lendmark}",
                             style: const Pw.TextStyle(
                               fontSize: 13,
                             ),
@@ -114,7 +116,7 @@ class _PdfState extends State<Pdf> {
                             height: 5,
                           ),
                           Pw.Text(
-                            "${Global.lendmark} PinCode ${Global.pincode}",
+                            "PinCode ${Global.pincode}",
                             style: const Pw.TextStyle(
                               fontSize: 13,
                             ),
@@ -233,13 +235,14 @@ class _PdfState extends State<Pdf> {
                               Pw.Expanded(
                                 flex: 3,
                                 child: Pw.Container(
-                                  height: 30,
-                                  alignment: Pw.Alignment.center,
+                                  height: 45,
+                                  padding: Pw.EdgeInsets.only(top: 5),
                                   color: PdfColors.white,
                                   child: Pw.Text(
                                     e['title'],
                                     style: const Pw.TextStyle(
                                       color: PdfColors.black,
+                                      fontSize: 17,
                                     ),
                                   ),
                                 ),
@@ -247,13 +250,14 @@ class _PdfState extends State<Pdf> {
                               Pw.Expanded(
                                 flex: 2,
                                 child: Pw.Container(
-                                  height: 30,
-                                  alignment: Pw.Alignment.center,
+                                  height: 40,
                                   color: PdfColors.white,
+                                  alignment: Pw.Alignment.center,
                                   child: Pw.Text(
                                     e['bq'].toString(),
                                     style: const Pw.TextStyle(
                                       color: PdfColors.black,
+                                      fontSize: 17,
                                     ),
                                   ),
                                 ),
@@ -261,12 +265,13 @@ class _PdfState extends State<Pdf> {
                               Pw.Expanded(
                                 flex: 2,
                                 child: Pw.Container(
-                                  height: 30,
+                                  height: 40,
                                   alignment: Pw.Alignment.center,
                                   color: PdfColors.white,
                                   child: Pw.Text(
                                     e['price'].toString(),
                                     style: const Pw.TextStyle(
+                                      fontSize: 17,
                                       color: PdfColors.black,
                                     ),
                                   ),
@@ -275,13 +280,14 @@ class _PdfState extends State<Pdf> {
                               Pw.Expanded(
                                 flex: 2,
                                 child: Pw.Container(
-                                  height: 30,
+                                  height: 40,
                                   alignment: Pw.Alignment.center,
                                   color: PdfColors.white,
                                   child: Pw.Text(
-                                    e['price'].toString(),
+                                    "Rs. ${e['bq'] * e['price']} ",
                                     style: const Pw.TextStyle(
                                       color: PdfColors.black,
+                                      fontSize: 17,
                                     ),
                                   ),
                                 ),
@@ -290,26 +296,63 @@ class _PdfState extends State<Pdf> {
                           ),
                         )
                         .toList(),
-                    Pw.Padding(
-                      padding: const Pw.EdgeInsets.only(
-                        top: 50,
-                        left: 300,
-                      ),
-                      child: Pw.Column(
-                        children: [
-                          Pw.Row(
-                            children: [
-                              Pw.Text(
-                                "TOTAL : ",
-                                style: const Pw.TextStyle(
-                                  fontSize: 15,
-                                  // fontWeight: Pw.FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                  ],
+                ),
+              ),
+              Pw.Expanded(
+                flex: 1,
+                child: Pw.Column(
+                  children: [
+                    Pw.Row(
+                      children: [
+                        Pw.Expanded(
+                          flex: 3,
+                          child: Pw.Container(
+                            height: 30,
+                            alignment: Pw.Alignment.center,
+                            color: PdfColors.white,
                           ),
-                        ],
-                      ),
+                        ),
+                        Pw.Expanded(
+                          flex: 2,
+                          child: Pw.Container(
+                            height: 30,
+                            alignment: Pw.Alignment.center,
+                            color: PdfColors.white,
+                          ),
+                        ),
+                        Pw.Expanded(
+                          flex: 2,
+                          child: Pw.Container(
+                            height: 30,
+                            alignment: Pw.Alignment.center,
+                            color: PdfColors.grey500,
+                            child: Pw.Text(
+                              "TOTLE BILL",
+                              style: const Pw.TextStyle(
+                                color: PdfColors.white,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Pw.Expanded(
+                          flex: 2,
+                          child: Pw.Container(
+                            height: 30,
+                            alignment: Pw.Alignment.center,
+                            color: PdfColors.grey500,
+                            child: Pw.Text(
+                              "${TPrice}",
+                              style: const Pw.TextStyle(
+                                color: PdfColors.white,
+                                fontSize: 18,
+                                // fontWeight: Pw.FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -350,6 +393,10 @@ class _PdfState extends State<Pdf> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    addedProducts.forEach((element) {
+      PtPrice = element['bq'] * element['price'] as int;
+      TPrice = TPrice + PtPrice as int;
+    });
     genratePdf();
   }
 
