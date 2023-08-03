@@ -55,7 +55,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "Fullname (First and last name)",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -72,7 +72,9 @@ class _CheckoutState extends State<Checkout> {
                         });
                       },
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         hintText: "Enter your name",
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -88,7 +90,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "Mobile number",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -106,7 +108,9 @@ class _CheckoutState extends State<Checkout> {
                       },
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         hintText: "1236547896",
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -121,7 +125,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "Email Address",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -139,7 +143,9 @@ class _CheckoutState extends State<Checkout> {
                       },
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         hintText: "bhadsf@gmail.com",
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -154,7 +160,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "Flat,House no.,Compny",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -172,7 +178,15 @@ class _CheckoutState extends State<Checkout> {
                       },
                       keyboardType: TextInputType.streetAddress,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        hintText: "Bhakti nagar",
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 17,
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -181,7 +195,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "Area,Street,Sector,Village",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -199,7 +213,15 @@ class _CheckoutState extends State<Checkout> {
                       },
                       keyboardType: TextInputType.streetAddress,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        hintText: "D-mart Road",
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 17,
+                          fontWeight: FontWeight.normal,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -208,7 +230,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "Landmark",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -225,7 +247,9 @@ class _CheckoutState extends State<Checkout> {
                         });
                       },
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         hintText: "E.g. near mota varachha",
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -240,7 +264,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "Pincode",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -258,7 +282,9 @@ class _CheckoutState extends State<Checkout> {
                       },
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         hintText: "6 digits PIN code",
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -273,7 +299,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "Town/City",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -291,7 +317,9 @@ class _CheckoutState extends State<Checkout> {
                       },
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         hintText: "Surat",
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -306,7 +334,7 @@ class _CheckoutState extends State<Checkout> {
                     Text(
                       "State",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: Global.appColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -324,7 +352,9 @@ class _CheckoutState extends State<Checkout> {
                       },
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                         hintText: "Goa",
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -361,22 +391,24 @@ class _CheckoutState extends State<Checkout> {
                           );
                         }
                       },
-                      child: Container(
-                        height: 70,
-                        width: w * .915,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(5),
+                      child: Center(
+                        child: Container(
+                          height: 55,
+                          width: w * .700,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(50),
+                            ),
+                            color: Global.appColor,
                           ),
-                          color: Global.appColor,
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Done",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Global.textColor,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Done",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Global.textColor,
+                            ),
                           ),
                         ),
                       ),
@@ -388,22 +420,24 @@ class _CheckoutState extends State<Checkout> {
                       onTap: () {
                         Navigator.pushNamed(context, 'pdf');
                       },
-                      child: Container(
-                        height: 70,
-                        width: w * .915,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(5),
+                      child: Center(
+                        child: Container(
+                          height: 55,
+                          width: w * .750,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(50),
+                            ),
+                            color: Global.appColor,
                           ),
-                          color: Global.appColor,
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Create Bill",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: Global.textColor,
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Create Bill",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Global.textColor,
+                            ),
                           ),
                         ),
                       ),

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:invoice_generator/utils/product_list.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as Pw;
@@ -24,28 +25,62 @@ class _PdfState extends State<Pdf> {
   int TPrice = 0;
   int PtPrice = 0;
 
-  genratePdf() {
+  genratePdf() async {
+    final ByteData bytes = await rootBundle.load('lib/Assets/invoice.jpg');
+    final Uint8List byteList = bytes.buffer.asUint8List();
+    final ByteData bytes1 = await rootBundle.load('lib/Assets/download.png');
+    final Uint8List byteList1 = bytes1.buffer.asUint8List();
     pdf.addPage(
       Pw.Page(
         build: (context) => Pw.Padding(
           padding: const Pw.EdgeInsets.all(10.0),
           child: Pw.Column(
+            crossAxisAlignment: Pw.CrossAxisAlignment.start,
             children: [
+              Pw.Expanded(
+                flex: 2,
+                child: Pw.Column(
+                  mainAxisAlignment: Pw.MainAxisAlignment.start,
+                  children: [
+                    Pw.Row(children: [
+                      Pw.Container(
+                        height: 100,
+                        width: 100,
+                        decoration: Pw.BoxDecoration(
+                          color: PdfColors.grey,
+                          image: Pw.DecorationImage(
+                            image: Pw.MemoryImage(byteList),
+                          ),
+                          shape: Pw.BoxShape.circle,
+                        ),
+                      ),
+                      Pw.Spacer(),
+                      Pw.Column(
+                        children: [
+                          Pw.Container(
+                            height: 85,
+                            width: 85,
+                            decoration: Pw.BoxDecoration(
+                              color: PdfColors.grey,
+                              image: Pw.DecorationImage(
+                                image: Pw.MemoryImage(byteList1),
+                              ),
+                            ),
+                          ),
+                          Pw.SizedBox(height: 3),
+                          Pw.Text("Pay with QR Code")
+                        ],
+                      )
+                    ])
+                  ],
+                ),
+              ),
               Pw.Expanded(
                 flex: 1,
                 child: Pw.Center(
                   child: Pw.Column(
+                    mainAxisAlignment: Pw.MainAxisAlignment.start,
                     children: [
-                      // Pw.Container(
-                      //   height: 100,
-                      //   width: 100,
-                      //   decoration: Pw.BoxDecoration(
-                      //     color: PdfColors.grey,
-                      //     //image: Pw.DecorationImage(
-                      //     //image: Pw.MemoryImage("lib/Assets/invoice.jpg"),
-                      //     //),
-                      //   ),
-                      // ),
                       Pw.Text(
                         "INVOICE",
                         style: Pw.TextStyle(
@@ -165,7 +200,7 @@ class _PdfState extends State<Pdf> {
                 ),
               ),
               Pw.Expanded(
-                flex: 5,
+                flex: 4,
                 child: Pw.Column(
                   children: [
                     Pw.Row(
@@ -178,8 +213,9 @@ class _PdfState extends State<Pdf> {
                             color: PdfColors.grey500,
                             child: Pw.Text(
                               "DETAILS",
-                              style: const Pw.TextStyle(
+                              style: Pw.TextStyle(
                                 color: PdfColors.white,
+                                fontWeight: Pw.FontWeight.bold,
                               ),
                             ),
                           ),
@@ -192,8 +228,9 @@ class _PdfState extends State<Pdf> {
                             color: PdfColors.grey500,
                             child: Pw.Text(
                               "QUANTITY",
-                              style: const Pw.TextStyle(
+                              style: Pw.TextStyle(
                                 color: PdfColors.white,
+                                fontWeight: Pw.FontWeight.bold,
                               ),
                             ),
                           ),
@@ -206,8 +243,9 @@ class _PdfState extends State<Pdf> {
                             color: PdfColors.grey500,
                             child: Pw.Text(
                               "UNTIL PRICE",
-                              style: const Pw.TextStyle(
+                              style: Pw.TextStyle(
                                 color: PdfColors.white,
+                                fontWeight: Pw.FontWeight.bold,
                               ),
                             ),
                           ),
@@ -220,8 +258,9 @@ class _PdfState extends State<Pdf> {
                             color: PdfColors.grey500,
                             child: Pw.Text(
                               "PRICE",
-                              style: const Pw.TextStyle(
+                              style: Pw.TextStyle(
                                 color: PdfColors.white,
+                                fontWeight: Pw.FontWeight.bold,
                               ),
                             ),
                           ),
@@ -328,10 +367,11 @@ class _PdfState extends State<Pdf> {
                             alignment: Pw.Alignment.center,
                             color: PdfColors.grey500,
                             child: Pw.Text(
-                              "TOTLE BILL",
-                              style: const Pw.TextStyle(
+                              "TOTAL BILL",
+                              style: Pw.TextStyle(
                                 color: PdfColors.white,
                                 fontSize: 17,
+                                fontWeight: Pw.FontWeight.bold,
                               ),
                             ),
                           ),
@@ -344,10 +384,10 @@ class _PdfState extends State<Pdf> {
                             color: PdfColors.grey500,
                             child: Pw.Text(
                               "${TPrice}",
-                              style: const Pw.TextStyle(
+                              style: Pw.TextStyle(
                                 color: PdfColors.white,
                                 fontSize: 18,
-                                // fontWeight: Pw.FontWeight.bold,
+                                fontWeight: Pw.FontWeight.bold,
                               ),
                             ),
                           ),

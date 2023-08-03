@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../utils/globals.dart';
 import '../utils/product_list.dart';
 
 class Detail_Screen extends StatefulWidget {
@@ -12,11 +11,6 @@ class Detail_Screen extends StatefulWidget {
 
 class _Detail_ScreenState extends State<Detail_Screen> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
@@ -27,7 +21,7 @@ class _Detail_ScreenState extends State<Detail_Screen> {
       appBar: AppBar(
         backgroundColor: Color(0xff202140),
         title: Text(
-          "Details Page",
+          data['title'],
           style: TextStyle(
             color: Color(0xfffeae42),
           ),

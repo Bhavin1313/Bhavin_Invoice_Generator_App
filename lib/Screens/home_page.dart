@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           backgroundColor: Global.appColor,
           title: Text(
-            "Welcome",
+            "Amazon",
             style: TextStyle(
               color: Global.textColor,
               fontSize: 25,

@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:invoice_generator/Screens/pdf.dart';
+import 'package:invoice_generator/utils/globals.dart';
 
 import 'Screens/cart_page.dart';
 import 'Screens/checkout.dart';
@@ -12,7 +12,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Global.appColor),
       routes: {
         '/': (context) => const Splece(),
         'home': (context) => const HomePage(),
